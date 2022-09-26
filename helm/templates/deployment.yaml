@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: docker-logrotate
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: log-rotate
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: log-rotate
+    spec:
+      containers:
+      - name: docker-logrotate
+        image: {{ .Values.image }}:{{ .Values.tag }}
+        imagePullPolicy: IfNotPresent
+        env:
+        {{ include "..env" . | nindent 12 }}
+        ports:
+          - name: port
+            containerPort: 3000
+            protocol: TCP
+        volumeMounts:
+          - name: host-mount
+            mountPath: {{ .Values.tpath}}
+      volumes:
+        - name: host-mount
+          hostPath:
+            path: {{ .Values.spath }}
