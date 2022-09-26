@@ -3,4 +3,4 @@ spath: /var/lib/docker/containers
 #target path to mount in container
 tpath: /var/lib/docker/containers
 image: plumtreesystems/docker-logrotate
-tag: 0.0.4
+tag: 0.0.6
