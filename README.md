@@ -3,6 +3,7 @@
 # Installation
 
 ```
+cd helm
 helm install -n [namespace] [name] .
 ```
 
