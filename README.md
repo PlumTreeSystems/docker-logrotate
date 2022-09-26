@@ -1,4 +1,4 @@
-# Docker log rotate for kubernetes
+# Docker containers log rotator for kubernetes
 
 # Installation
 
