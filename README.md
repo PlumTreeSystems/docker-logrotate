@@ -7,4 +7,4 @@ cd helm
 helm install -n [namespace] [name] .
 ```
 
-# Logs are being rotated once every Tuesday (can be changed in Dockerfile)
+# Logs are being rotated by default once every Tuesday (can be changed in values.yaml file)
