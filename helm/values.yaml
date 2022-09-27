@@ -2,5 +2,7 @@
 spath: /var/lib/docker/containers
 #target path to mount in container
 tpath: /var/lib/docker/containers
+#when cron suppose to be executed
+cron: 0 7 * * 2
 image: plumtreesystems/docker-logrotate
-tag: 0.0.6
+image_tag: 0.0.17

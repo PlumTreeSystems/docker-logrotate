@@ -2,13 +2,21 @@ FROM alpine:latest
 
 RUN apk update && apk add bash
 
-COPY log-cleanup.sh .
+COPY log-cleanup.sh /tmp
+RUN chmod +x /tmp/log-cleanup.sh
 
-RUN chmod +x log-cleanup.sh
-
-RUN echo "0 5 * * 2 ./log-rotate.sh" >> /etc/crontabs/root
+ADD crontab.txt /crontab.txt
+RUN /usr/bin/crontab /crontab.txt
 
 ARG TPATH=changeme
 ENV TPATH=$TPATH
 
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+ARG CRON=changeme
+ENV CRON=$CRON
+
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+CMD ["/entrypoint.sh"]
+
+#ENTRYPOINT ["tail", "-f", "/dev/null"]

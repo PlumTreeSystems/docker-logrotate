@@ -13,10 +13,15 @@ spec:
     spec:
       containers:
       - name: docker-logrotate
-        image: {{ .Values.image }}:{{ .Values.tag }}
+        image: {{ .Values.image }}:{{ .Values.image_tag }}
         imagePullPolicy: IfNotPresent
         env:
         {{ include "..env" . | nindent 12 }}
+        args:
+        - 'echo "{{ .Values.cron }} /bin/bash /tmp/log-cleanup.sh" > /crontab.txt && /usr/bin/crontab /crontab.txt && /usr/sbin/crond -f -l 8'
+        command:
+        - /bin/sh
+        - -c
         ports:
           - name: port
             containerPort: 3000

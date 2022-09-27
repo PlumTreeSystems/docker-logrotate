@@ -12,4 +12,10 @@ cd /tmp
 
 ./logrotate.sh
 
+if [[ $? -ne 0 ]]; then
+    echo "`date` - Log rotation failed" >> /tmp/logrotate.log
+else
+    echo "`date` - Log rotation successful" >> /tmp/logrotate.log
+fi
+
 rm logrotate.sh
