@@ -9,6 +9,8 @@ launch simple log-cleanup.sh script and rotates logs.
 # Installation
 
 ```
+git clone https://github.com/PlumTreeSystems/docker-logrotate.git
+cd docker-logrotate
 cd helm
 helm install -n [namespace] [name] .
 ```
