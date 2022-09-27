@@ -18,3 +18,7 @@ Logs by default are being rotated once every Tuesday, but you can easily change 
 helm values file by providing casual cron expression
 For example: 
 0 7 * * 2 - it means it will be executed every Tuesday at 7AM
+
+# MUST KNOW
+This is for self-managed kubernetes instances.
+It was NOT tested on AWS / Azure / GCloud etc
