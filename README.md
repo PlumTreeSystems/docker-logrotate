@@ -16,7 +16,7 @@ helm install -n [namespace] [name] .
 ```
 
 # Logs are being rotated by default once every Tuesday (can be changed in values.yaml file)
-Logs by default are being rotated once every Tuesday, but you can easily change that in 
+This tool by default rotates logs once every Tuesday, but you can easily change that in 
 helm values file by providing casual cron expression.
 For example: 
 0 7 * * 2 - it means it will be executed every Tuesday at 7AM
